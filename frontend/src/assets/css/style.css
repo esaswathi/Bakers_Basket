@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fff4ea;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Navbar */
+.navbar {
+  height: 70px; 
+  padding: 0; 
+}
+
+.brand span {
+  font-size: 30px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #372a28;
+}
+
+.brand-position {
+  position: relative;
+  top: 25px;
+}
+
+/* User - Banner image */
+#bannerImage {
+  display: flex;
+  align-items: center;
+  height: 90vh; 
+}
+
+.card-container {
+  display: flex;
+  justify-content: flex-start; 
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.8); 
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+}
+
+.card-marks {
+    color: #FFC61A;
+}
+
+.footer {
+  background-color: #fff4ea;
+}
+
+
+.text-brown{
+    color: #372a28;
+}
