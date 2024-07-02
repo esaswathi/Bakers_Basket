@@ -16,4 +16,8 @@ const App = () => {
   );
 };
 
+const serverUrl = 'http://localhost:8000'
+
+export {serverUrl}
+
 export default App;
