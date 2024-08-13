@@ -8,6 +8,48 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="./style.css">
+
+  <style>
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="password"]:focus,
+      input[type="number"]:focus,
+      input[type="file"]:focus,
+      .textarea:focus {
+        border-color: #ffc107 !important;
+        box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5) !important; ,
+         textarea:focus !important
+      }
+
+      .navbar {
+        z-index: 1000;
+        position: fixed;
+        width: 100%;
+      }
+      
+      .brand-text {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #000; 
+      }
+
+      
+      @media (max-width: 992px) { /* Bootstrap 'lg' breakpoint */
+  .navbar-collapse {
+    background-color: white !important;
+  }
+
+  .content-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: 'center';
+    align-items: 'center';
+    margin-left: 0;
+    text-align: 'center';
+  }
+}
+  </style>
+
 </head>
 <body>
 

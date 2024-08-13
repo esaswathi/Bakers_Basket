@@ -1,18 +1,58 @@
-import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import BakersBasketLogo from '../assets/images/bakersbasket_logo.png';
-import '../assets/css/style.css';
+import React from "react";
+import { Navbar, Nav } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import BakersBasketLogo from "../assets/images/bakersbasket_logo.png";
+import "../assets/css/style.css";
 
-// UserPage - Navbar
 const AppNavbar = () => {
+  const navigate = useNavigate(); 
+  const userRole = sessionStorage.getItem("userRole");
+
+  const handleLogout = () => {
+    // Clear session storage
+    sessionStorage.removeItem("userRole");
+    sessionStorage.removeItem("token"); 
+    sessionStorage.removeItem("userId"); 
+    // Navigate to the home page and reload
+    window.location.href = "/";
+  };
+
+  const handleLogoClick = () => {
+    // Clear session storage
+    sessionStorage.removeItem("userRole");
+    sessionStorage.removeItem("token"); 
+    sessionStorage.removeItem("userId"); 
+
+    // Navigate to the home page and reload
+    window.location.href = "/";
+  };
+
+  const handleLinkClick = (path) => {
+    // Navigate to the specified path and reload
+    window.location.href = path;
+  };
+
   return (
-    <Navbar bg="light" expand="lg" className="navbar">
+    <Navbar
+      bg="light"
+      expand="lg"
+      className="navbar px-3"
+      style={{ zIndex: 10 }}
+    >
       <div className="container">
         {/* Logo and Brand */}
-        <Navbar.Brand href="/" className="brand">
-          <img src={BakersBasketLogo} alt="Header Logo" height="80" className="brand-position" />
-          <span className="ps-3 brand-position" >Baker'S Basket</span>
+        <Navbar.Brand
+          onClick={() => handleLinkClick("/")}
+          className="d-flex align-items-center"
+          style={{ cursor: "pointer" }}
+        >
+          <img
+            src={BakersBasketLogo}
+            alt="Header Logo"
+            height="50"
+            className="me-2"
+          />
+          <span className="brand-text">Baker's Basket</span>
         </Navbar.Brand>
 
         {/* Toggle Button */}
@@ -21,19 +61,75 @@ const AppNavbar = () => {
         {/* Navbar Content */}
         <Navbar.Collapse id="navbarNav">
           <Nav className="ms-auto">
-            {/* Menu items */}
-            {/* <Nav.Link href="#profile">Profile</Nav.Link>
-            <Nav.Link href="#orders">Orders</Nav.Link>
-            <Nav.Link href="#wishlist">Wishlist</Nav.Link>
-            <Nav.Link href="#notifications">Notifications</Nav.Link>
-            <Nav.Link href="#referrals">Referrals</Nav.Link>
-            <Nav.Link href="#" className="btn btn-warning ms-5 me-2 text-dark">Cart</Nav.Link>
-            <Nav.Link href="#" className="btn btn-warning text-dark">Logout</Nav.Link> */}
+            {userRole ? (
+              <>
+                {userRole === "admin" ? (
+                  <Nav.Link
+                    onClick={() => handleLinkClick("/adminHome")}
+                    className="btn btn-warning text-dark mx-1"
+                  >
+                    Home
+                  </Nav.Link>
+                ): userRole === "vendor" ? (
+                  <Nav.Link
+                    onClick={() => handleLinkClick("/VendorHome")}
+                    className="btn btn-warning text-dark mx-1"
+                  >
+                    Home
+                  </Nav.Link>
+                ) : userRole === "user" ? (
+                  <>
+                    <Nav.Link
+                      onClick={() => handleLinkClick("/products")}
+                      className="btn btn-warning text-dark mx-1"
+                    >
+                      Products
+                    </Nav.Link>
+                    <Nav.Link
+                      onClick={() => handleLinkClick("/CartPage")}
+                      className="btn btn-warning text-dark mx-1"
+                    >
+                      Cart
+                    </Nav.Link>
+                    <Nav.Link
+                      onClick={() => handleLinkClick("/MyOrders")}
+                      className="btn btn-warning text-dark mx-1"
+                    >
+                      My Orders
+                    </Nav.Link>
+                    <Nav.Link
+                      onClick={() => handleLinkClick("/MyWishlist")}
+                      className="btn btn-warning text-dark mx-1"
+                    >
+                      Wishlist
+                    </Nav.Link>
+                  </>
+                ) : null}
 
-            <Nav.Link as={Link} to="/login" className="btn btn-warning ms-5 me-2 text-dark">Login</Nav.Link>
-            <Nav.Link as={Link} to="/registration" className="btn btn-warning text-dark">Registration</Nav.Link>
-            
-            </Nav>
+                <Nav.Link
+                  onClick={handleLogout}
+                  className="btn btn-warning text-dark mx-1"
+                >
+                  Logout
+                </Nav.Link>
+              </>
+            ) : (
+              <>
+                <Nav.Link
+                  onClick={() => handleLinkClick("/login")}
+                  className="btn btn-warning text-dark mx-1"
+                >
+                  Login
+                </Nav.Link>
+                <Nav.Link
+                  onClick={() => handleLinkClick("/registration")}
+                  className="btn btn-warning text-dark mx-1"
+                >
+                  Registration
+                </Nav.Link>
+              </>
+            )}
+          </Nav>
         </Navbar.Collapse>
       </div>
     </Navbar>

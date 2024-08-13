@@ -15,8 +15,9 @@ code {
 
 /* Navbar */
 .navbar {
-  height: 70px; 
-  padding: 0; 
+  height: 70px;
+  padding: 0;
+  z-index: 10;
 }
 
 .brand span {
@@ -34,30 +35,77 @@ code {
 #bannerImage {
   display: flex;
   align-items: center;
-  height: 90vh; 
+  height: 90vh;
+  z-index: 1;
 }
 
 .card-container {
   display: flex;
-  justify-content: flex-start; 
+  justify-content: flex-start;
 }
 
 .card {
-  background-color: rgba(0, 0, 0, 0.8); 
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 20px;
   border-radius: 10px;
   max-width: 500px;
 }
 
 .card-marks {
-    color: #FFC61A;
+  color: #ffc61a;
 }
 
 .footer {
-  background-color: #fff4ea;
+  background-color: rgba(255, 170, 0, 0.536);
 }
 
+.text-brown {
+  color: #372a28;
+}
 
-.text-brown{
-    color: #372a28;
+#contentSection {
+  height: 100%;
+  min-height: 500px;
+}
+
+.btn-outline-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.fa-heart {
+  margin-right: 5px;
+}
+.card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.card-img-top {
+  border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  height: 50px; 
+  overflow: hidden; 
+}
+
+.card-text {
+  font-size: 1rem;
+}
+
+#justify {
+  text-align: justify;
 }
